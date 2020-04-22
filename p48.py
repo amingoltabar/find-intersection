@@ -16,12 +16,29 @@ def delete_repeated_numbers(array):#This function receives a list and deletes th
         if count==1:
             my_list.append(array[i])
     return my_list
+def receive():#Function for inputting integer
+    count=0
+    while count==0:
+        a=input('Enter the integer :')
+        try:
+            val=int(a)
+            count+=1
+            return val
+        except ValueError:
+            try:
+                val=float(a)
+                print('You entered a float. ')
+            except ValueError:
+                print('You did not enter a number. ')
 first_list=[]
+print('Creating the first list')
+while len(first_list)<7: #creating the first list
+    first_list.append(receive())
 second_list=[]
-for i in range(5):
-    first_list.append(int(input('Create your first list.Enter the number: ')))
-for i in range(4):
-    second_list.append(int(input('Create your second list.Enter the number: ')))
+print('Creating the second list')
+while len(second_list)<7: #creating the second list
+    second_list.append(receive())
+my_list=[]
 my_list=intersect(first_list,second_list)
 my_list=delete_repeated_numbers(my_list)
 if len(my_list)==0:
